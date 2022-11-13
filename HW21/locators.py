@@ -30,7 +30,7 @@ black_friday_discount_button = '//div[@align="center"]//a'
 email_login_field = '//div[@id="enter-layer"]//input[@name="email"]'
 password_login_field = '//div[@id="enter-layer"]//input[@name="pass"]'
 submit_login_button = '//div[@id="enter-layer"]//button'
-logout_button = '//a[@class="logout"]'
+logout_button = '//div[@class="client entered"]'
 
 css_electro_bike_category = 'li[data-filter="biketype:electro"]'
 css_hybrid_bike_category = 'li[data-filter="biketype:hybrid_cross"]'
