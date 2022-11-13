@@ -1,3 +1,3 @@
-user_email = 'test_2022@gmail.com'
-user_password = 'Just_Automation_Test'
+user_email = 'blablabla@gmail.com'
+user_password = 'Hello_World'
 base_url = 'https://veliki.com.ua/'
