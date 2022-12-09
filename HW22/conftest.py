@@ -18,7 +18,7 @@ def env():
     return Configuration(**env_dict)
 
 
-@pytest.fixture(scope='session')
+@pytest.fixture()
 def create_driver(env):
     driver = DriverFactory.create_current_driver(driver_id=env.browser_id)
     driver.maximize_window()
