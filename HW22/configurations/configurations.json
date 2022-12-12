@@ -1,0 +1,8 @@
+{
+  "base_url": "https://veliki.com.ua/",
+  "user_email": "blablabla@gmail.com",
+  "user_password": "Hello_World",
+  "browser_id": "1",
+  "is_headless": "True",
+  "debug_mode": "False"
+}
