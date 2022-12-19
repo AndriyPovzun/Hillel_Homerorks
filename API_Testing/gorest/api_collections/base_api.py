@@ -1,6 +1,5 @@
 import requests
 import json
-from API_Testing.gorest import conftest
 
 
 class BaseAPI:
