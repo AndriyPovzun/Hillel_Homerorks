@@ -1,0 +1,7 @@
+{
+  "base_url": "https://gorest.co.in/",
+  "user_url": "public/v1/users/",
+  "post_url": "/public/v1/users/user_id/posts",
+  "authorization": "Bearer 5731fb2398e53b063ca67acff3b9ea6bd9e7a2101f0fc4cd1ae5cad54f704ec1",
+  "content_type": "application/json"
+}
