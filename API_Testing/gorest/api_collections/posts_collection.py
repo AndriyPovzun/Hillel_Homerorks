@@ -1,7 +1,6 @@
 from API_Testing.gorest.api_collections.base_api import BaseAPI
 from API_Testing.gorest.data.post_data import PostData
 import json
-from faker import Faker
 
 
 class PostsAPI(BaseAPI):
@@ -9,9 +8,8 @@ class PostsAPI(BaseAPI):
         super().__init__(env)
         self.__env = env
         self.__posts_url = self.__env.post_url
-        self.__fake = Faker()
-        self.__fake_post = {"title": f'{self.__fake.text()}',
-                            "body": f'{self.__fake.text()}'}
+        self.__fake_post = {"title": f'{self._fake.text()}',
+                            "body": f'{self._fake.text()}'}
 
     def create_user_post(self, user_id, body=None):
         self.__posts_url = self.__posts_url.replace('user_id', str(user_id))
