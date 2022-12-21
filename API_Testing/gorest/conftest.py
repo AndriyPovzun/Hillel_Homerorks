@@ -6,7 +6,7 @@ from API_Testing.gorest.configurations.config_parser import Configuration
 import json
 
 
-@pytest.fixture()
+@pytest.fixture(scope='session')
 def env():
     with open(
             f'{ROOT_DIR}/configurations/configurations.json') as file:
