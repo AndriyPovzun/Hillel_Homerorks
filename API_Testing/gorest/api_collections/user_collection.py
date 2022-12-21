@@ -1,5 +1,4 @@
 from API_Testing.gorest.api_collections.base_api import BaseAPI
-from faker import Faker
 import random
 
 
@@ -10,11 +9,10 @@ class User(BaseAPI):
         self.__user_url = self.__env.user_url
         self.__gender = ['male', 'female']
         self.__status = ['active', 'inactive']
-        self.__fake = Faker()
 
-        __valid_email = f'{self.__fake.name()}@gmail.com'.replace(' ', '_')
+        __valid_email = f'{self._fake.name()}@gmail.com'.replace(' ', '_')
         self.__random_user = {"email": f"{__valid_email}",
-                              "name": f"{self.__fake.name()}",
+                              "name": f"{self._fake.name()}",
                               "gender": f"{random.choice(self.__gender)}",
                               "status": f"{random.choice(self.__status)}"}
 
@@ -40,7 +38,7 @@ class User(BaseAPI):
 
     def update_user_name(self, person_id, user_data=None):
         if not user_data:
-            user_data = {"name": f"{self.__fake.name()}"}
+            user_data = {"name": f"{self._fake.name()}"}
         return self._put(url=f'{self.__user_url}{person_id}', body=user_data)
 
     @staticmethod
