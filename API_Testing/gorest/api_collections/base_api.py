@@ -1,5 +1,6 @@
 import requests
 import json
+from faker import Faker
 
 
 class BaseAPI:
@@ -9,6 +10,7 @@ class BaseAPI:
         self.__headers = {"Authorization": self.__env.authorization,
                           "Content-Type": self.__env.content_type}
         self.__request = requests
+        self._fake = Faker()
 
     def _get(self, url, params=None):
         response = self.__request.get(url=f'{self.__base_url}{url}', params=params, headers=self.__headers)
