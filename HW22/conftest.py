@@ -1,5 +1,7 @@
 import pytest
 import json
+import allure
+from contextlib import suppress
 
 from HW22.CONSTANTS import ROOT_DIR
 
@@ -8,6 +10,14 @@ from HW22.utilities.driver_factory import DriverFactory
 from HW22.utilities.configurations import Configuration
 from HW22.page_objects.bike_order_page import BikeOrderPage
 from HW22.page_objects.personal_cabinet_page import PersonalCabinetPage
+
+
+@pytest.hookimpl(hookwrapper=True, tryfirst=True)
+def pytest_runtest_makereport(item, call):
+    outcome = yield
+    rep = outcome.get_result()
+    setattr(item, "rep_" + rep.when, rep)
+    return rep
 
 
 @pytest.fixture(scope='session')
@@ -19,11 +29,15 @@ def env():
 
 
 @pytest.fixture()
-def create_driver(env):
+def create_driver(env, request):
     driver = DriverFactory.create_current_driver(driver_id=env.browser_id)
     driver.maximize_window()
     driver.get(env.base_url)
     yield driver
+    if request.node.rep_call.failed:
+        with suppress(Exception):
+            allure.attach(driver.get_screenshot_as_png(), name=request.function.__name__,
+                          attachment_type=allure.attachment_type.PNG)
     driver.quit()
 
 
