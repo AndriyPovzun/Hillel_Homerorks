@@ -2,7 +2,10 @@ import requests
 import json
 from faker import Faker
 
+from API_Testing.gorest.utilities.decorators import auto_add_step
 
+
+@auto_add_step
 class BaseAPI:
     def __init__(self, env):
         self.__env = env
